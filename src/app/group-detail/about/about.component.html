@@ -1,0 +1,104 @@
+
+<div class="custom-detail" style="margin-bottom: 100px;">
+
+<div *ngIf="afAuth.user | async as user;">
+    <div class="pro-detail">
+      <img [src]="user.photoURL">
+      <h1 class="mat-h1">Welcome, {{ user.displayName }}!</h1>
+    </div>
+  </div>
+
+<mat-card>
+
+  <mat-icon style="vertical-align: middle;">link</mat-icon> Group Code:
+
+  <button mat-stroked-button [matMenuTriggerFor]="group_code">{{ groupCode }}</button>
+  <mat-menu #group_code="matMenu">
+    <button mat-menu-item>Copy</button>
+  </mat-menu>
+</mat-card> <br>
+
+<!-- <mat-card tabindex="0" class="m-20" style="background-color: rgba(0, 0, 0, .2);">
+  <mat-icon>person_add</mat-icon><span style="padding-left: 16px;"></span>Add Member
+</mat-card> -->
+
+
+
+
+
+
+
+
+
+
+
+<mat-form-field class="example-chip-list">
+  <mat-chip-list #chipList>
+    <mat-chip *ngFor="let c of groupCategories" [selectable]="selectable"
+             [removable]="removable" (removed)="remove(c)">
+      {{c.name}}
+      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+    </mat-chip>
+    <input placeholder="New Category..."
+           [matChipInputFor]="chipList"
+           [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+           [matChipInputAddOnBlur]="addOnBlur"
+           (matChipInputTokenEnd)="add($event)">
+  </mat-chip-list>
+</mat-form-field>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<mat-card style="padding: 5px;">
+
+  <mat-list class="mat-list">
+    <h3 mat-subheader>Members</h3>
+    <!-- <mat-list-item class="mat-list-item">
+      <mat-icon mat-list-icon>person</mat-icon>
+      <img matListAvatar src="{{creatorPhotoURL}}">
+      <h4 mat-line> {{creatorDisplayName}} </h4>
+      <p mat-line> {{ creatorEmail }} | creator </p>
+    </mat-list-item> -->
+    <mat-list-item class="mat-list-item" *ngFor="let m of membersDisplayName" style="margin: 13px 0;">
+      <!-- <mat-icon mat-list-icon>person</mat-icon> -->
+      <img matListAvatar [src]="m.userId.photoURL">
+      <h4 mat-line>{{m.userId.displayName}} </h4>
+      <p mat-line> {{ m.userId.email }} <span *ngIf="m.isAdmin"> | admin</span></p>
+
+      <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item><span>View Profile</span></button>
+        <button mat-menu-item *ngIf="!m.isAdmin && creatorId === userId" (click)="makeAdmin()"><span>Make Admin</span></button>
+        <button mat-menu-item *ngIf="m.isAdmin && creatorId === userId" (click)="removeAdmin()"><span>Remove Admin</span></button>
+        <button mat-menu-item *ngIf="m.isAdmin"><span>Remove from group</span></button>
+      </mat-menu>
+    </mat-list-item>
+
+  </mat-list>
+</mat-card> <br>
+
+
+<div style="text-align: center; padding-bottom: 10px;" *ngIf="creatorId !== userId">
+  <button mat-raised-button color="accent" (click)="leaveGroup()">Leave Group</button>
+</div>
+<div style="text-align: center; padding-bottom: 100px;">
+  <button mat-raised-button color="warn" (click)="deleteGroup()" *ngIf="creatorId === userId">Delete Group</button>
+</div>
+
+
+</div>

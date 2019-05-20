@@ -1,0 +1,40 @@
+<div class="app-container">
+
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+    <span>HandShake</span>
+    <span class="example-spacer"></span>
+    <!-- <button mat-icon-button class="example-icon"><mat-icon>calendar_today</mat-icon></button> -->
+
+    <button mat-icon-button class="example-icon" [matMenuTriggerFor]="groupMenu"><mat-icon>add</mat-icon></button>
+    <mat-menu #groupMenu="matMenu">
+      <button mat-menu-item (click)="openGroupJoinDialog()"><mat-icon>group_add</mat-icon><span>Join Group</span></button>
+      <button mat-menu-item (click)="openGroupCreateDialog()"><mat-icon>add_circle_outline</mat-icon><span>Create Group</span></button>
+    </mat-menu>
+
+    <button mat-icon-button class="example-icon" [matMenuTriggerFor]="moreMenu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #moreMenu="matMenu">
+      <a mat-menu-item routerLink="/"><mat-icon>home</mat-icon><span>Home</span></a>
+      <mat-divider></mat-divider>
+      <a mat-menu-item (click)="signout()"><mat-icon>power_settings_new</mat-icon><span>Logout</span></a>
+    </mat-menu>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+
+<mat-nav-list>
+  <h3 mat-subheader *ngIf="group <= 0">No Groups</h3>
+  <h3 mat-subheader *ngIf="group != 0">Groups</h3>
+  <mat-list-item *ngFor="let g of group" [routerLink]="[g._id, g.groupName, 'feed']">
+    <mat-icon mat-list-icon>group</mat-icon>
+    <h4 mat-line>{{ g.groupName }}</h4>
+    <p mat-line> {{ g.numberOfMember }} member | Created On: {{ g.createdOn | date }}</p>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-nav-list>
+
+</div>

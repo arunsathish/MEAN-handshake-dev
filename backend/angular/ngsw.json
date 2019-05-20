@@ -1,0 +1,107 @@
+{
+  "configVersion": 1,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/favicon.png",
+        "/index.html",
+        "/main.c142b46fb349b0946ca7.js",
+        "/polyfills.f4b78b65941f8063fd57.js",
+        "/runtime.06daa30a2963fa413676.js",
+        "/styles.306a5e617346ff3bf154.css"
+      ],
+      "patterns": [
+        "https:\\/\\/fonts\\.googleapis\\.com\\/css\\?family=Source\\+Sans\\+Pro",
+        "https:\\/\\/fonts\\.gstatic\\.com\\/.*",
+        "https:\\/\\/fonts\\.googleapis\\.com\\/icon\\?family=Material\\+Icons",
+        "https:\\/\\/use\\.fontawesome\\.com\\/releases\\/v5\\.2\\.0\\/css\\/all\\.css"
+      ]
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/icons/icon_h-128x128.png",
+        "/assets/icons/icon_h-144x144.png",
+        "/assets/icons/icon_h-152x152.png",
+        "/assets/icons/icon_h-192x192.png",
+        "/assets/icons/icon_h-512x512.png",
+        "/assets/icons/icon_h-72x72.png",
+        "/assets/icons/icon_h-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "mongodb",
+      "patterns": [
+        "http:\\/\\/handshakedev\\.us-east-2\\.elasticbeanstalk\\.com\\/api\\/user\\/[^/]*",
+        "http:\\/\\/handshakedev\\.us-east-2\\.elasticbeanstalk\\.com\\/api\\/group\\/.*",
+        "http:\\/\\/handshakedev\\.us-east-2\\.elasticbeanstalk\\.com\\/api\\/feed\\/.*",
+        "http:\\/\\/handshakedev\\.us-east-2\\.elasticbeanstalk\\.com\\/api\\/feed\\/group\\/[^/]*",
+        "http:\\/\\/handshakedev\\.us-east-2\\.elasticbeanstalk\\.com\\/api\\/resource\\/.*",
+        "http:\\/\\/handshakedev\\.us-east-2\\.elasticbeanstalk\\.com\\/api\\/resource\\/group\\/[^/]*"
+      ],
+      "strategy": "freshness",
+      "maxSize": 100,
+      "maxAge": 86400000,
+      "timeoutMs": 10000,
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/assets/icons/icon_h-128x128.png": "c96db5b349be15fbe7fc0fc33e9300267125ba0d",
+    "/assets/icons/icon_h-144x144.png": "b50546dbea7222da89c0fdc698240ef64629f7aa",
+    "/assets/icons/icon_h-152x152.png": "109797838ff73615bbc65c4e958fa3b6956adc1d",
+    "/assets/icons/icon_h-192x192.png": "dc283017a92af4c561c9d212c0f57fc9b530a68e",
+    "/assets/icons/icon_h-512x512.png": "04b49c74e4d6c22baf1dd6a21f9a041c310c927d",
+    "/assets/icons/icon_h-72x72.png": "079930aa613fd236b5ae12cfd8dcfbbc69ba17cf",
+    "/assets/icons/icon_h-96x96.png": "34328479e325646a93bd573bafdf3b0921164dba",
+    "/favicon.png": "c169c4159f954867b084470d2983484d14aeb7ee",
+    "/index.html": "36c31c805594cc1c7c709cc48e1b7764d215a04c",
+    "/main.c142b46fb349b0946ca7.js": "2088f9d5da188793273c457af4f4ed0748109feb",
+    "/polyfills.f4b78b65941f8063fd57.js": "545c24c573146dfe99fe677f9b7319b838a21330",
+    "/runtime.06daa30a2963fa413676.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
+    "/styles.306a5e617346ff3bf154.css": "8ccf332a3a44ce1ef3bd64ab14272e9950a0ba10"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

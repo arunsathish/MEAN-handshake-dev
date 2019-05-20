@@ -1,0 +1,51 @@
+<div class="app-container">
+
+<mat-toolbar color="primary">
+
+    <mat-toolbar-row>
+      <button mat-icon-button routerLink="../"><mat-icon>arrow_back</mat-icon></button>
+      <span class="pl-8">Resource Show</span>
+      <span class="example-spacer"></span>
+
+      <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+      <mat-menu #menu="matMenu">
+        <!-- <button mat-menu-item><span>Edit</span></button> -->
+        <button mat-menu-item (click)="deleteResource()"><span>Delete</span></button>
+        <button mat-menu-item><span>Report</span></button>
+      </mat-menu>
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+
+<div class="custom-detail" style="margin-bottom: 100px">  
+  
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image" [style.background-image]="'url(' + resourceCreatorPhotoURL  + ')' | safe: 'style'"></div>
+    <mat-card-title>{{resourceCreatorDisplayName}}</mat-card-title>
+    <mat-card-subtitle>{{resourceCreatedOn | date:'medium' }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <h4 class="mat-h4">{{resourceTitle}}</h4>
+    <p>{{resourceDesc}}</p>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <mat-nav-list disableRipple>
+      <a mat-list-item *ngFor="let ri of resourceItem" href="{{ ri.fileUrl }}" target="_blank">
+        <mat-icon mat-list-icon *ngIf="ri.fileType === 'file'">insert_drive_file</mat-icon>
+        <mat-icon mat-list-icon *ngIf="ri.fileType === 'video'">video_library</mat-icon>
+        <mat-icon mat-list-icon *ngIf="ri.fileType !== 'file' && ri.fileType !== 'video'">{{ ri.fileType }}</mat-icon>
+        <h4 mat-line>{{ri.fileName}}</h4>
+        <p mat-line> {{ri.fileType}} </p>
+      </a>
+      
+    </mat-nav-list>
+  </mat-card-actions>
+
+</mat-card>
+
+</div>
+
+</div>

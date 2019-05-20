@@ -1,0 +1,18 @@
+@import "src/styles/mixins";
+
+.fab-btn {
+    position: fixed;
+    z-index: 50;
+    bottom: 5%;
+    right: 12%;
+    @include respond(tab-port) { right: 5%; }
+}
+.example-header-image {
+    background-size: cover;
+}
+
+.mat-subheading-2 {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.54);
+    font-weight: 500;
+}

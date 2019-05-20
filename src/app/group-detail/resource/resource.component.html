@@ -1,0 +1,22 @@
+<a mat-fab routerLink="create" class="fab-btn" color="primary"><mat-icon>add</mat-icon></a>
+
+
+<div class="custom-detail" style="margin-bottom: 100px;">
+
+<h3 class="mat-subheading-2"  *ngIf="multipleResources.length > 0">Resouces</h3>
+<h3 class="mat-subheading-2" *ngIf="multipleResources.length <= 0">No Resource Yet!</h3>
+
+<mat-card role="navigation" class="card" *ngFor="let r of multipleResources" style="margin-bottom: 10px;">
+
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image" [style.background-image]="'url(' + r.resourceCreator.photoURL  + ')' | safe: 'style'"></div>
+    <mat-card-title>{{r.resourceCreator.displayName}}</mat-card-title>
+    <mat-card-subtitle> {{r.resourceCreatedOn | date}} </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content><p>{{r.resourceTitle}}</p></mat-card-content>
+  <mat-card-actions><button mat-stroked-button color="primary" [routerLink]="[r._id]">DETAILS</button></mat-card-actions>
+
+</mat-card> 
+
+</div>

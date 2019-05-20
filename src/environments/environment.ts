@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyD04OZ8yUpz6QHD3Dg3BtK-FZO7YXsaa1A",
+    authDomain: "handshake-d.firebaseapp.com",
+    databaseURL: "https://handshake-d.firebaseio.com",
+    projectId: "handshake-d",
+    storageBucket: "handshake-d.appspot.com",
+    messagingSenderId: "1042946851752"
+  },
+  googleClientID: "1042946851752-rksjjcojgpn605hm8keoj25n5dhf6dht.apps.googleusercontent.com",
+  nodeUrl: "http://localhost:3000"
 };
 
 /*

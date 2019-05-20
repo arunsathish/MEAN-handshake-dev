@@ -1,0 +1,12 @@
+<a mat-fab routerLink="create" class="fab-btn" color="primary"><mat-icon>add</mat-icon></a>
+
+<mat-nav-list style="margin-bottom: 90px;">
+  <h3 mat-subheader *ngIf="multipleFeeds.length > 0">Feeds</h3>
+  <h3 mat-subheader *ngIf="multipleFeeds.length <= 0">No Feed Yet!</h3>
+  <mat-list-item *ngFor="let f of multipleFeeds" [routerLink]="[f._id]" disableRipple>
+    <mat-icon mat-list-icon>question_answer</mat-icon>
+    <h4 mat-line>{{ f.feedTitle }} </h4>
+    <p mat-line> {{ f.feedCreatedOn | date }} | {{ f.feedCreator.displayName }} </p>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-nav-list>

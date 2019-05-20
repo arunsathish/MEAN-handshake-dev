@@ -1,0 +1,51 @@
+<div class="app-container">
+
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button routerLink="../"><mat-icon>clear</mat-icon></button>
+      <span class="pl-8">Feed Thread</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  
+<form [formGroup]="form" (submit)="onSaveFeed()" class="m-20">
+
+    <mat-form-field>
+      <mat-label>Feed type</mat-label>
+      <mat-select value="discussion" formControlName="feedType">
+        <mat-option value="discussion">Discussion</mat-option>
+        <mat-option value="post">Post</mat-option>
+        <mat-option value="announcement">Announcement</mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('feedType').invalid">Please Select Feed Type</mat-error>
+    </mat-form-field><br>
+
+
+    <mat-form-field class="custom-form-field">
+      <input matInput type="text" formControlName="feedTitle" placeholder="Title">
+      <mat-error *ngIf="form.get('feedTitle').invalid">Please Enter Feed Title</mat-error>
+    </mat-form-field><br>
+  
+
+    <mat-form-field class="custom-form-field">
+      <textarea matInput formControlName="feedDesc" placeholder="Description"></textarea>
+      <mat-error *ngIf="form.get('feedDesc').invalid">Please Enter Feed Desciption</mat-error>
+    </mat-form-field><br>
+
+    <mat-form-field>
+        <mat-label>Feed category</mat-label>
+        <mat-select value="General" formControlName="feedCategory">
+          <mat-option value="General">General</mat-option>
+          <mat-option *ngFor="let cat of category" value="{{ cat.name }}">{{ cat.name }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('feedCategory').invalid">Please Select Feed Category</mat-error>
+      </mat-form-field>
+    
+
+  <div class="button-row mt-25">
+    <button mat-raised-button type="submit" color="primary" [disabled]="form.invalid">Submit</button>
+    <button mat-button color="warn" routerLink="../">Cancel</button>
+  </div>
+
+</form>
+
+</div>

@@ -1,0 +1,12 @@
+<form class="m-20" [formGroup]="feedCommentEditForm" (submit)="onSaveFeedCommentEdit()">
+  <mat-form-field appearance="fill" style="width: 100%">
+    <mat-label>Edit Comment</mat-label>
+    <textarea matInput formControlName="feedCommentContent"></textarea>
+    <mat-error *ngIf="feedCommentEditForm.get('feedCommentContent').invalid">Minimum 4 Characters Required</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-dialog-actions>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!feedCommentEditForm.valid || !feedCommentEditForm.value.feedCommentContent">Update</button>
+    <button mat-button color="warn" mat-dialog-close>Cancel</button>
+  </mat-dialog-actions>
+</form>

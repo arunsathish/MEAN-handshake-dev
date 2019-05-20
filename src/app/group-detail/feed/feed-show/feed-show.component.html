@@ -1,0 +1,62 @@
+<div class="app-container">
+
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button routerLink="../"><mat-icon>arrow_back</mat-icon></button>
+      <span class="pl-8"> Feed Show</span>
+      <span class="example-spacer"></span>
+
+      <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item  [routerLink]="['edit']"><span>Edit</span></button>
+        <button mat-menu-item (click)="deleteFeed()"><span>Delete</span></button>
+        <button mat-menu-item><span>Report</span></button>
+      </mat-menu>
+  
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+
+<div class="custom-detail">
+
+<!-- FEED DETAILS -->
+  <mat-card style="background-color: rgba(0, 0, 0, .03);">
+    <mat-card-title>{{ feedTitle }}</mat-card-title>
+    <mat-card-subtitle>{{ feedCreatorDisplayName }} | {{feedCreatedOn | date:'medium'}}</mat-card-subtitle>
+    <mat-card-content>
+      <p>{{feedDesc}}</p>
+    </mat-card-content>
+  </mat-card> <br>
+
+  <!-- FEED COMMENT READ -->
+  <mat-card *ngFor="let fc of feedComment" style="margin-top: 20px;">
+    <mat-card-header>
+      <mat-card-subtitle>{{fc.feedCommentCreator.displayName}} | {{fc.feedCommentCreatedOn | date:'short' }}</mat-card-subtitle>
+      <mat-card-subtitle></mat-card-subtitle>
+      <span class="example-spacer"></span>
+      <!-- <button mat-icon-button><mat-icon>reply</mat-icon></button> -->
+      <button mat-icon-button [matMenuTriggerFor]="respondMenu"><mat-icon>more_vert</mat-icon></button>
+      <mat-menu #respondMenu="matMenu">
+        <button mat-menu-item (click)="openFeedCommentEditDialog(fc._id)"><span>Edit</span></button>
+        <button mat-menu-item (click)="deletedFeedComment(fc._id)"><span>Delete</span></button>
+        <!-- <button mat-menu-item><span>Report</span></button> -->
+      </mat-menu>
+    </mat-card-header>
+    <mat-card-content>
+      <p style="margin: 15px;">{{fc.feedCommentContent}}</p>
+    </mat-card-content>
+  </mat-card> <br><br>
+
+  <!-- FEED COMMENT FORM -->
+  <form [formGroup]="feedCommentForm" (submit)="onSaveFeedComment()">
+    <mat-form-field appearance="fill" style="width: 100%">
+      <mat-label>Respond To Thread</mat-label>
+      <textarea matInput formControlName="feedCommentContent"></textarea>
+      <mat-error *ngIf="feedCommentForm.get('feedCommentContent').invalid">Minimum 4 Charaters required</mat-error>
+    </mat-form-field><br>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!feedCommentForm.valid || !feedCommentForm.value.feedCommentContent">Submit</button>
+  </form> <br><br><br>
+
+</div>
+
+</div>

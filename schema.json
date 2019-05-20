@@ -1,0 +1,54 @@
+[
+    {
+        "USER": "##### USER #####",
+        "_id": "",
+        "uid": "",
+        "email": "",
+        "photoURL": "",
+        "displayName": "",
+        "groups": [ "", "" ]
+    },
+    {
+        "GROUP": "##### GROUP #####",
+        "_id": "",
+        "groupName": "",
+        "groupCode": "",
+        "creator": "USER._id",
+        "createdOn": "",
+        "members": [
+            { "userId": "USER._id", "isAdmin": "Boolean", "groupFolderId": "" },
+            { "userId": "USER._id", "isAdmin": "Boolean", "groupFolderId": "" }
+        ]
+    },
+    {
+        "FEED": "##### FEED #####",
+        "_id": "",
+        "groupId": "GROUP._id",
+        "feedType": "",
+        "feedTitle": "",
+        "feedDesc": "",
+        "feedCategory": "",
+        "feedCreator": "USER._id",
+        "feedCreatedOn": "",
+        "feedUpdatedOn": "",
+        "feedComment": [
+            { "feedCommentId": "", "feedCommentCreator": "USER._id", "feedCommentCreatedOn": "", "feedCommentUpdatedOn": "", "feedCommentContent": "" },
+            { "feedCommentId": "", "feedCommentCreator": "USER._id", "feedCommentCreatedOn": "", "feedCommentUpdatedOn": "", "feedCommentContent": "" }
+        ]
+    },
+    {
+        "RESOURCE": "##### RESOURCE #####",
+        "_id": "",
+        "groupId": "GROUP._id",
+        "resourceTitle": "",
+        "resourceDesc": "",
+        "resourceCategory": "",
+        "resourceCreator": "",
+        "resourceCreatedOn": "",
+        "resourceUpdatedOn": "",
+        "resourceItem": [
+            { "fileId": "", "fileUrl": "", "fileName": "", "fileType": "" },
+            { "fileId": "", "fileUrl": "", "fileName": "", "fileType": "" }
+        ]
+    }
+]

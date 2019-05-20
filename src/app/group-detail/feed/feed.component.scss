@@ -1,0 +1,9 @@
+@import "src/styles/mixins";
+
+.fab-btn {
+    position: fixed;
+    z-index: 50;
+    bottom: 5%;
+    right: 12%;
+    @include respond(tab-port) { right: 5%; }
+}

@@ -1,0 +1,51 @@
+{
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.png",
+          "/index.html",
+          "/*.css",
+          "/*.js"
+        ],
+        "urls": [
+          "https://fonts.googleapis.com/css?family=Source+Sans+Pro",
+          "https://fonts.gstatic.com/**",
+          "https://fonts.googleapis.com/icon?family=Material+Icons",
+          "https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+        ]
+      }
+    }, {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/**"
+        ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "mongodb",
+      "urls": [
+        "http://handshakedev.us-east-2.elasticbeanstalk.com/api/user/*",
+        "http://handshakedev.us-east-2.elasticbeanstalk.com/api/group/**",
+        "http://handshakedev.us-east-2.elasticbeanstalk.com/api/feed/**",
+        "http://handshakedev.us-east-2.elasticbeanstalk.com/api/feed/group/*",
+        "http://handshakedev.us-east-2.elasticbeanstalk.com/api/resource/**",
+        "http://handshakedev.us-east-2.elasticbeanstalk.com/api/resource/group/*"
+      ],
+      "cacheConfig": {
+        "maxSize": 100,
+        "maxAge": "1d",
+        "timeout": "10s",
+        "strategy": "freshness"
+      }
+    }
+  ]
+}

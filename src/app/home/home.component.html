@@ -1,0 +1,24 @@
+<div class="company-header">
+  <i class="fas fa-handshake" style="font-size: 80px;"></i>
+  <h1 class="mat-display-1">HandShake</h1>
+</div>
+
+<div *ngIf="afAuth.user | async as user; else showLogin">
+  <div class="pro-detail">
+    <img [src]="user.photoURL">
+    <h1 class="mat-h1">Welcome, {{ user.displayName }}!</h1>
+    <div class="button-row">
+      <button mat-raised-button color="accent" routerLink="/group"> <mat-icon class="btn-icon">list_alt</mat-icon> Group List</button>
+      <button mat-raised-button color="warn" (click)="logout()"> <i class="fas fa-sign-out-alt btn-icon"></i> Logout</button>
+    </div>
+  </div>
+</div>
+
+<ng-template #showLogin>
+  <div class="login-btn">
+    <button mat-raised-button color="warn" (click)="login()">
+      <i class="fab fa-google btn-icon"></i>
+      Login with Google
+    </button>
+  </div>
+</ng-template>

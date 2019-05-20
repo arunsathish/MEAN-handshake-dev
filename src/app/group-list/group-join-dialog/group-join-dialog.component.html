@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Join Group</h2>
+
+<mat-dialog-content>
+  <div>
+    <mat-form-field class="example-full-width">
+      <input ref-inputBox matInput placeholder="Group Code" [(ngModel)]="data.groupCode" name="groupCode" autocomplete="off">
+    </mat-form-field>
+  </div>
+  <span class="mat-caption">Ask Group Admin or existing member for the group code.</span>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-stroked-button [mat-dialog-close]="data.groupCode" [disabled]="!inputBox.value">Join</button>
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

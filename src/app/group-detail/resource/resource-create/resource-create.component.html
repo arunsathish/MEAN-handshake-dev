@@ -1,0 +1,60 @@
+<div class="app-container">
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button routerLink="../"><mat-icon>clear</mat-icon></button>
+    <span class="pl-8">Add Resource</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<form [formGroup]="resourceCreateForm" (submit)="onSaveResource()" class="m-20" style="margin-bottom: 100px;">
+  <mat-form-field class="custom-form-field">
+    <mat-label>Resource Title</mat-label>
+    <input matInput formControlName="resourceTitle">
+    <mat-error *ngIf="resourceCreateForm.get('resourceTitle').invalid">Please Enter Resource Title</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="custom-form-field">
+    <mat-label>Resource Desciption</mat-label>
+    <textarea matInput formControlName="resourceDesc"></textarea>
+    <mat-error *ngIf="resourceCreateForm.get('resourceDesc').invalid">Please Enter Resource Description</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Resouce Category</mat-label>
+    <mat-select value="General" formControlName="resourceCategory">
+      <mat-option value="General">General</mat-option>
+      <mat-option *ngFor="let cat of category" value="{{ cat.name }}">{{ cat.name }}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="resourceCreateForm.get('resourceCategory').invalid">Please Select Resource Category</mat-error>
+  </mat-form-field>
+  <br><br>
+  <mat-divider></mat-divider> <br>
+  <div class="button-row">
+    <span class="mat-subheading-2" style="color: rgba(0, 0, 0, 0.54); margin-right: 15px;">Attach</span>
+    <button mat-icon-button (click)="picker.openUploadPicker()" type="button"><mat-icon>cloud_upload</mat-icon></button>
+    <button mat-icon-button (click)="picker.openDrivePicker()" type="button"><i class="fab fa-google-drive"></i></button>
+    <button mat-icon-button (click)="picker.openYoutubePicker()" type="button"><i class="fab fa-youtube"></i></button>
+    <button mat-icon-button type="button" (click)="openUploadLinkAddressDialog()"><mat-icon>link</mat-icon></button>
+    <button mat-raised-button type="button" (click)="getResource()">Show Uploaded Resource</button>
+  </div>
+  <br>
+
+
+  <mat-chip-list *ngFor="let RI of resourceItems">
+    <mat-chip [selectable]="selectable" [removable]="removable" (removed)="remove(RI)"> {{RI.fileName}}
+      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+    </mat-chip>
+  </mat-chip-list>
+  
+
+  <br>
+  <div class="button-row mt-25">
+    <button mat-raised-button type="submit" color="primary" [disabled]="resourceCreateForm.invalid">Submit</button>
+    <a mat-button color="warn" routerLink="../">Cancel</a>
+  </div>
+
+</form>
+
+
+</div>

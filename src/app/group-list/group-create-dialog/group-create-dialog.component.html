@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Create New Group</h2>
+
+<mat-dialog-content>
+  <mat-form-field class="example-full-width">
+    <input ref-inputBox matInput placeholder="Group Name" [(ngModel)]="data.gTitle" name="title">
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-stroked-button [mat-dialog-close]="data.gTitle" [disabled]="!inputBox.value">Create</button>
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

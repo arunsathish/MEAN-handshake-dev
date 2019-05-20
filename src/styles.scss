@@ -1,1 +1,70 @@
-/* You can add global styles to this file, and also import other style files */
+@import './styles/mixins';
+@import './styles/theme';
+@import './styles/helper';
+
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Angular Material
+// ================
+
+.example-icon {
+    padding: 0 20px;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.example-stretched-tabs {
+    max-width: auto;
+}
+
+.button-row button,
+.button-row a {
+  margin-right: 10px;
+}
+
+.custom-form-field {
+    width: 70%;
+    @include respond(phone) { width: 100%; }
+}
+
+.custom-detail {
+    margin: 30px;
+
+    @include respond(phone) { margin: 10px; }
+}
+
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Custom
+// ================
+
+.app-container {
+    margin: 0 130px;
+
+    @include respond(tab-land) { margin: 0 100px; }
+    @include respond(tab-port) { margin: 0 }
+}
+
+//List
+.mat-nav-list p {
+    color: rgba(0, 0, 0, 0.54);
+}
+.mat-list-icon {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+i {
+    font-size: 18px;
+}
