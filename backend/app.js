@@ -11,7 +11,7 @@ const resourceRoutes = require('./routes/resources');
 
 const app = express();
 
-mongoose.connect("mongodb+srv://arun:0XDSbORlwPIRyW4b@cluster0-mgmew.mongodb.net/node-angular")
+mongoose.connect("")
     .then(() => {
         console.log('Connected to MongoDB Database');
     })

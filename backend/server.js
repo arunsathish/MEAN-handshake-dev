@@ -49,6 +49,3 @@ server.on("listening", onListening);
 server.listen(port);
 
 //npm run start:server
-
-
-// mongodb atlas user 0XDSbORlwPIRyW4b

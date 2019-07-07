@@ -5,14 +5,14 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyD04OZ8yUpz6QHD3Dg3BtK-FZO7YXsaa1A",
+    apiKey: "",
     authDomain: "handshake-d.firebaseapp.com",
     databaseURL: "https://handshake-d.firebaseio.com",
     projectId: "handshake-d",
     storageBucket: "handshake-d.appspot.com",
-    messagingSenderId: "1042946851752"
+    messagingSenderId: ""
   },
-  googleClientID: "1042946851752-rksjjcojgpn605hm8keoj25n5dhf6dht.apps.googleusercontent.com",
+  googleClientID: "",
   nodeUrl: "http://localhost:3000"
 };
 
