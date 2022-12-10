@@ -28,7 +28,7 @@
     "@angular/service-worker": "^6.1.0",
     "body-parser": "^1.18.3",
     "core-js": "^2.5.4",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "firebase": "^5.9.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.4.20",
